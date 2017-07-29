@@ -4,9 +4,8 @@ Class-based views
     2. Add a URL to urlpatterns:  url(r'^$', Home.as_view(), name='home')
 """
 from django.conf.urls import url, include
-from django.contrib import admin
 
+app_name = 'home'
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^', include(home.urls)),
+
 ]

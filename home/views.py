@@ -8,7 +8,7 @@ def home(request):
 	return render(request, 'index.html')
 
 def house_gallery(request):
-	houses = House.objects.all()
+	houses = House.objects.all().order_by('name')
 	persons = Person.objects.all()
 	args = {'houses': houses, 'persons': persons}
 	return render(request, 'home/house_gallery.html', args)

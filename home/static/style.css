@@ -1,0 +1,15 @@
+.container-fluid{
+	margin:0 5% 0 5%;
+}
+.house{
+	margin: 7px;
+}
+.castel{
+	margin: 20px;
+}
+img {
+    max-width: 420px;
+	max-height: 240px;
+    display: block;
+}
+

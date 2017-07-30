@@ -13,7 +13,7 @@ class House(models.Model):
 		return self.name
 
 class Person(models.Model):
-	house = models.ForeignKey(House)
+	house = models.ForeignKey(House, blank=True, null=True)
 	name = models.CharField(max_length=60)
 	biography = models.TextField()
 	aliwe = models.BooleanField(default=True)
@@ -25,7 +25,7 @@ class Person(models.Model):
 		return self.name
 
 class Castel(models.Model):
-	owner = models.OneToOneField(House)
+	owner = models.OneToOneField(House, blank=True, null=True)
 	name = models.CharField(max_length=60)
 	description = models.TextField()
 	img = models.ImageField(verbose_name='Castel img',

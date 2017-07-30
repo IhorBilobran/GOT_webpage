@@ -10,7 +10,7 @@ House {{house.name}}
 		<p>Name:<a href="{% url 'home:view_house' house.id %}"> {{house.name}}</a></p>
 		<p>Words: {{house.words}}</p>
 		<img src="{%if house.img.url%}{{house.img.url}}{%endif%}" widht="240" height="320">
-		<p>Brief descriptiosn: {{house.description}}</p>
+		<p>Descriptiosn: {{house.description}}</p>
 </div>
 <div class="col-md-4">
 	<p>Famous people of this house</p>

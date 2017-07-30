@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+
+{% block title %}
+House {{house.name}}
+{% endblock %}
+
+{% block main %}
+<div class="house col-md-4">
+	<p>{{person.name}}</p>
+	<img src="{%if person.img%}{{person.img.url}}{%endif%}" widht="240" height="320" alt="fuck">
+</div>
+	
+{% endblock %}

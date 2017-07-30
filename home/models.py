@@ -14,12 +14,11 @@ class House(models.Model):
 
 class Person(models.Model):
 	house = models.ForeignKey(House)
-	user = models.OneToOneField(User)
 	name = models.CharField(max_length=60)
 	biography = models.TextField()
 	aliwe = models.BooleanField(default=True)
 	img = models.ImageField(verbose_name= 'emblem' ,
-		upload_to='users_image/', 
+		upload_to='persons_image/', 
 		blank=True)
 	
 	def __str__(self):

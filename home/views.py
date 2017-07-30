@@ -24,3 +24,11 @@ def view_house(request, id=None):
 	else:
 		return redirect('home:home')
 	return render(request, 'home/view_house.html', args)
+
+def view_profile(request, id=None):
+	if id is not None:
+		person = get_object_or_404(Person, id=id)
+		args = {'person': person}
+	else:
+		return redirect('home:home')
+	return render(request, 'home/view_person.html', args)

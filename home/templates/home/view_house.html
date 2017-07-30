@@ -15,7 +15,7 @@ House {{house.name}}
 	<p>Famous people of this house</p>
 	<ul>
 	{% for person in persons %}
-		<li>{{person.name}}</li>
+		<li><a href="{% url 'home:view_profile' person.id %} ">{{person.name}}</a></li>
 	{% endfor %}
 	</ul>
 </div>

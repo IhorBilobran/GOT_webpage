@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+
+{% block title %}
+	{{castel.name}}
+{% endblock %}
+
+{% block main %}
+	<p>Castel name: {{castel.name}}</p>
+	<p>House owner: <a href="{% url 'home:view_house' castel.owner.id %}">{{castel.owner.name}}</a></p>
+	<img src="{% if castel.img %}{{castel.img.url}}{%endif%}" alt="Have no image sorry">
+	<p>Description: {{castel.description}}</p>
+
+{% endblock %}

@@ -23,3 +23,14 @@ class Person(models.Model):
 	
 	def __str__(self):
 		return self.name
+
+class Castel(models.Model):
+	owner = models.OneToOneField(House)
+	name = models.CharField(max_length=60)
+	description = models.TextField()
+	img = models.ImageField(verbose_name='Castel img',
+		upload_to='places/',
+		blank=True)
+
+	def __str__(self):
+		return self.name

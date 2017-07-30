@@ -6,13 +6,14 @@ Class-based views
 from django.conf.urls import url, include
 
 from . import views
-from .views import Home
 #[\w\-]+)
 app_name = 'home'
 urlpatterns = [
-	url(r'^$', Home.as_view(), name='home'),
-	url(r'^view_house/(?P<id>\d+)/$', views.view_house,
-		name='view_house'),
-	url(r'^view_profile/(?P<id>\d+)/$', views.view_profile,
-		name='view_profile'),
+	url(r'^$', views.home, name='home'),
+	url(r'^house-gallery/$', views.house_gallery, name='house_gallery'),
+	url(r'^castel-gallery/$', views.castel_gallery, name='castel_gallery'),
+	url(r'^view-house/(?P<id>\d+)/$', views.view_house, name='view_house'),
+	url(r'^view-profile/(?P<id>\d+)/$', views.view_profile, name='view_profile'),
+	url(r'^view-castel/(?P<id>\d+)/$', views.view_castel, name='view_castel'),
 ]
+	

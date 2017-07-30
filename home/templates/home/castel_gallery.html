@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block main %}
+<div class="castels">
+	{% for castel in castels %}
+	<div class="castel col-md-5">
+		<p>Name:<a href="{% url 'home:view_castel' castel.id %}"> {{castel.name}}</a></p>
+		<img src="{%if castel.img.url%}{{castel.img.url}}{%endif%}" widht="240" height="320">
+	</div>
+	{% endfor %}
+</div>
+
+<div class="persons">
+	
+</div>
+{% endblock %}

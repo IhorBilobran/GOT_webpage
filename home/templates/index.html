@@ -22,8 +22,8 @@
 			 <ul class="nav navbar-nav">
 				<li><a href="/admin/">admin</a></li>
 				<li><a href="/">Home</a></li>
-				<li><a href="#">link</a></li>
-				<li><a href="#">link</a></li>
+				<li><a href="{% url 'home:house_gallery' %}">House gallery</a></li>
+				<li><a href="{% url 'home:castel_gallery' %}">Castel gallery</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#">link</a></li>
@@ -32,13 +32,12 @@
 			</ul>
 		</div>
 	</div>
-	<hr>
-	<div class="main container-fluid">
+
+	<div class="main container">
 		{% block main %}
 		Welcome on the home page
 		{% endblock %}
 	</div>
-	<hr>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

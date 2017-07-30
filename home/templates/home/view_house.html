@@ -5,7 +5,8 @@ House {{house.name}}
 {% endblock %}
 
 {% block main %}
-<div class="house col-md-4">
+<div class="row">
+ <div class="house col-md-4">
 		<p>Name:<a href="{% url 'home:view_house' house.id %}"> {{house.name}}</a></p>
 		<p>Words: {{house.words}}</p>
 		<img src="{%if house.img.url%}{{house.img.url}}{%endif%}" widht="240" height="320">
@@ -19,7 +20,14 @@ House {{house.name}}
 	{% endfor %}
 	</ul>
 </div>
+<div class="col-md-4">
 
-
-	
+	<p>Family castel:
+	{% if castel.id %}
+	<a href="{% url 'home:view_castel' castel.id%}">{{castel.name}}</a></p>
+	{% else %}
+	Sorry we don`t add info yet
+	{% endif %}
+	</div>
+</div>
 {% endblock %}

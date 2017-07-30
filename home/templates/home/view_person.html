@@ -7,6 +7,13 @@ House {{house.name}}
 {% block main %}
 <div class="house col-md-4">
 	<p>{{person.name}}</p>
+	<p>Bio: {{person.biography}}</p>
+	{% if person.aliwe %}
+		<p>Status: Aliwe</p>
+	{% else %}
+		<p>Status: Dead</p>
+	{% endif %}
+	<p>House: <a href="{% url 'home:view_house' person.house.id %}">{{person.house.name}}</a></p>
 	<img src="{%if person.img%}{{person.img.url}}{%endif%}" widht="240" height="320" alt="fuck">
 </div>
 	

@@ -5,7 +5,12 @@ Class-based views
 """
 from django.conf.urls import url, include
 
+from . import views
+from .views import Home
+#[\w\-]+)
 app_name = 'home'
 urlpatterns = [
-
+	url(r'^$', Home.as_view(), name='home'),
+	url(r'^view_house/(?P<id>\d+)/$', views.view_house,
+		name='view_house')
 ]

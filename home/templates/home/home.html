@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block main %}
+<div class="houses">
+	{% for house in houses %}
+	<div class="house col-md-5">
+		<p>Name:<a href="{% url 'home:view_house' house.id %}"> {{house.name}}</a></p>
+		<p>Words: {{house.words}}</p>
+		<img src="{%if house.img.url%}{{house.img.url}}{%endif%}" widht="240" height="320">
+		<p>Brief descriptiosn: {{house.description}}</p>
+	</div>
+	{% endfor %}
+</div>
+
+<div class="persons">
+	
+</div>
+{% endblock %}

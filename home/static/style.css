@@ -1,15 +1,18 @@
-.container-fluid{
-	margin:0 5% 0 5%;
-}
-.house{
-	margin: 7px;
-}
-.castel{
-	margin: 20px;
-}
-img {
-    max-width: 420px;
-	max-height: 240px;
-    display: block;
+.logo img{
+	width: 400px;
+	height: 300px;
 }
 
+.castel img, .logo img{
+	border: 2px solid rgba(100, 100, 100, 0.5);
+	border-radius: 100%;
+}
+.castel img{
+	width: 450px;
+	height: 320px;
+}
+.castel{
+	margin: 10px 5px;
+	padding: 7px;
+
+}

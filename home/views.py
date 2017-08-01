@@ -18,6 +18,11 @@ def castel_gallery(request):
 	args = {'castels': castels}
 	return render(request, 'home/castel_gallery.html', args)
 
+def people_gallery(request):
+	persons = Person.objects.all().order_by('name')
+	args = {'persons': persons}
+	return render(request, 'home/people_gallery.html', args)
+
 def view_house(request, id=None):
 	if id is not None:
 		house = get_object_or_404(House, id=id)

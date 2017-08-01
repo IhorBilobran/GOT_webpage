@@ -10,6 +10,7 @@ from . import views
 app_name = 'home'
 urlpatterns = [
 	url(r'^$', views.home, name='home'),
+	url(r'^people-gallery/$', views.people_gallery, name='people_gallery'),
 	url(r'^house-gallery/$', views.house_gallery, name='house_gallery'),
 	url(r'^castel-gallery/$', views.castel_gallery, name='castel_gallery'),
 	url(r'^view-house/(?P<id>\d+)/$', views.view_house, name='view_house'),

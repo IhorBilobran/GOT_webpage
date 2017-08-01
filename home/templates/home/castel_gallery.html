@@ -6,7 +6,7 @@
 {% block main %}
 <div class="castels">
 	{% for castel in castels %}
-	<div class="castel col-md-5">
+	<div class="castel col-md-5 text-center">
 		<p>Name:<a href="{% url 'home:view_castel' castel.id %}"> {{castel.name}}</a></p>
 		<img src="{%if castel.img.url%}{{castel.img.url}}{%endif%}" widht="240" height="320">
 	</div>

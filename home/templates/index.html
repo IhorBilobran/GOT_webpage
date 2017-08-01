@@ -7,23 +7,30 @@
 	{% endblock %}
 	</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+  	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 	
 </head>
 <body>
-
 	<div class="nav navbar navbar-default">
 		<div class="container">
 			 <ul class="nav navbar-nav">
 				<li><a href="/admin/">admin</a></li>
 				<li><a href="/">Home</a></li>
-				<li><a href="{% url 'home:house_gallery' %}">House gallery</a></li>
-				<li><a href="{% url 'home:castel_gallery' %}">Castel gallery</a></li>
+				
+			<li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gallerys <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                 <li><a href="{% url 'home:house_gallery' %}">House gallery</a></li>
+				 <li><a href="{% url 'home:castel_gallery' %}">Castel gallery</a></li>
+				 <li><a href="{% url 'home:people_gallery' %}">People gallery</a></li>
+                </ul>
+              </li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#">link</a></li>
-				<li><a href="#">link</a></li>
-				<li><a href="#">link</a></li>
+				<li><a href="{% url 'accounts:login' %}">Login</a></li>
+				<li><a href="{% url 'accounts:logout' %}">Logout</a></li>
 			</ul>
 		</div>
 	</div>

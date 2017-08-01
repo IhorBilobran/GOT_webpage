@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 #sfrom django.views import View
-
+from django.contrib.auth.models import User
 from .models import House, Person, Castel
-
+from accounts.models import UserProfile
 
 def home(request):
 	return render(request, 'index.html')
@@ -27,7 +27,9 @@ def view_house(request, id=None):
 	if id is not None:
 		house = get_object_or_404(House, id=id)
 		persons = Person.objects.filter(house__id=id)
-		args = {'house': house, 'persons': persons}
+		users = User.objects.filter(userprofile__house__id=id)
+
+		args = {'house': house, 'persons': persons, 'users': users}
 		try:
 			castel = get_object_or_404(Castel, owner_id=id)
 			args['castel'] = castel

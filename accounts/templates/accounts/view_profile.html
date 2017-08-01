@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+{% block title %}
+Create your profile
+{% endblock %}
+
+{% block main %}
+	<p>Username: {{user.username}}</p>
+	<p>First name: {{user.first_name}}</p>
+	<p>Last name:{{user.last_name}}</p>
+	<p>House: <a href="{% url 'home:view_house' user.userprofile.house.id %}">{{user.userprofile.house}}</a></p>
+	<p>City: {{user.userprofile.city}}</p>
+	<p>Created: {{user.userprofile.created}}</p>
+	<img src="{% if user.userprofile.img %}{{user.userprofile.img.url}}{%endif%}">
+{% endblock %}

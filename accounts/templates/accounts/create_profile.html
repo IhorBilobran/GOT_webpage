@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+
+{% block title %}
+Create your profile
+{% endblock %}
+
+{% block main %}
+	<form method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit">submit</button>
+	</form>
+{% endblock %}

@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
+from .models import UserProfile
 
 class RegisterForm(UserCreationForm):
 	email = forms.EmailField(required=True)
@@ -16,3 +17,12 @@ class RegisterForm(UserCreationForm):
 		if commit:
 			user.save()
 		return user
+
+class CreateProfileForm(forms.ModelForm):
+
+	class Meta:
+		model = UserProfile
+		exclude = ('user',)
+
+class ChangeProfileForm():
+	pass

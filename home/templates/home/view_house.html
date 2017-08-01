@@ -19,6 +19,16 @@ House {{house.name}}
 		<li><a href="{% url 'home:view_profile' person.id %} ">{{person.name}}</a></li>
 	{% endfor %}
 	</ul>
+	<p>Users that decided to join this great house</p>
+	<ul>
+	{% if users %}
+	{% for user in users %}
+		<li><a href="{% url 'accounts:view_profile' user.id %}">{{user.username}}</a></li>
+	{% endfor %}
+	{% else %}
+	<p>Have no candidancy yet</p>
+	{% endif %}
+	</ul>
 </div>
 <div class="col-md-4">
 

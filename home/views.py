@@ -1,8 +1,12 @@
 from django.shortcuts import render, get_object_or_404, redirect
-#sfrom django.views import View
 from django.contrib.auth.models import User
+from django.http import HttpResponse
+
+from reportlab.pdfgen import canvas
+
 from .models import House, Person, Castel
 from accounts.models import UserProfile
+
 
 def home(request):
 	return render(request, 'index.html')
@@ -54,3 +58,22 @@ def view_castel(request, id=None):
 	else:
 		return redirect('home:home')
 	return render(request, 'home/view_castel.html', args)
+
+def give_pdf(request):
+	# create the HttpResponse object with the appropriate PDF header
+	response = HttpResponse(content_type='application/pdf')
+	response['Content-Disposition'] = 'attachment; filename="file.pdf"'
+
+	# create pdf objects, using the response object
+	p = canvas.Canvas(response)
+
+	# Draw things on the PDF, here`s where the PDF generation happens
+	# see ReportLab documentation for the full llist of functionality
+	p.drawString(100, 100, 'hello world')
+
+	#close pdf obj
+	p.showPage()
+	p.save()
+	return response
+
+	

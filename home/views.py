@@ -57,7 +57,7 @@ def view_castel(request, id=None):
 		args = {'castel': castel}
 	else:
 		return redirect('home:home')
-	return render(request, 'home/view_castel.html', args)
+	return render(request, 'home/view_castel.html',args)
 
 def give_pdf(request):
 	# create the HttpResponse object with the appropriate PDF header

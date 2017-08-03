@@ -14,5 +14,14 @@
 .castel{
 	margin: 10px 5px;
 	padding: 7px;
+}
 
+.categories-img img{
+	width: 350px;
+	height: 300px;
+}
+
+.product-img img, .category img {
+	width: 280px;
+	height: 250px;
 }

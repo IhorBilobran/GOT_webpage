@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'home',
     'accounts',
+    'shop',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -122,6 +123,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = ['static']
 
 LOGIN_REDIRECT_URL = '/'
 
@@ -129,6 +131,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 LOGIN_EXEMPT_URLS = (
-    r'^account/logout/$',
-    r'^account/register/$',
+    r'^accounts/logout/$',
+    r'^accounts/register/$',
 )

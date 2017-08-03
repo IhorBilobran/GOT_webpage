@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+
+{% block title %}
+	Our products
+{% endblock %}
+
+{% block main %}
+	<div class="row">
+		{% for product in products %}
+		<div class="col-md-3">
+			<p>Product name: {{product.name}}</p>
+			{% if product.reference %}
+			<p>Reference to house: {{product.reference}}</p>
+			{% endif %}
+			<p>Category: {{product.category}}</p>
+			<p>Product description: {{product.description}}</p>
+			<div class="product-img"><img src="{% if product.img %}{{product.img.url}}{% endif %}"></div>
+			<p>Price: {{product.price}}$</p>
+			<p>Created: {{product.created}}</p>
+		</div>
+		{% endfor %}
+	</div>
+{% endblock %}

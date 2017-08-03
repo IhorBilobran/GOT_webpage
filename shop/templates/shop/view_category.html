@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+
+{% block title %}
+	Category {{category.name}}
+{% endblock %}
+
+{% block main %}
+	<div class="row">
+		<div class="col-md-4">
+			<p>Product name: {{category.name}}</p>
+			<p>Category: {{category.category}}</p>
+			<p>Product description: {{category.description}}</p>
+			<div class="category"><img src="{% if category.img %}{{category.img.url}}{% endif %}"></div>
+		</div>
+		<div class="col-md-6">
+			{% for product in products %}
+				<p>Product name: {{product.name}}</p>
+				<p>Created: {{product.created}}</p>
+				<hr>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

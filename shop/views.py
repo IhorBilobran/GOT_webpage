@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 
+from cart.forms import CartAddProductForm
 from .models import Category, Product
 
 def view_categories(request):
@@ -20,5 +21,6 @@ def view_category(request, id):
 
 def view_product(request, id):
 	product = get_object_or_404(Product, id=id)
-	args = {'product': product}
-	return render(request, 'shop/view_product.html')
+	cart_product_form = CartAddProductForm()
+	args = {'product': product, 'cart_product_form': cart_product_form}
+	return render(request, 'shop/view_product.html', args)

@@ -31,15 +31,17 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'home',
-    'accounts',
-    'shop',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'home',
+    'accounts',
+    'shop',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +136,6 @@ LOGIN_EXEMPT_URLS = (
     r'^accounts/logout/$',
     r'^accounts/register/$',
 )
+
+# our session indetificator
+CART_SESSION_ID = 'cart'

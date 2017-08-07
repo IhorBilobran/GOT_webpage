@@ -10,7 +10,8 @@ def view_categories(request):
 
 def view_products(request):
 	products = Product.objects.all()
-	args = {'products': products}
+	cart_product_form = CartAddProductForm()
+	args = {'products': products, 'cart_product_form': cart_product_form}
 	return render(request, 'shop/all_products.html', args)
 
 def view_category(request, id):
@@ -18,9 +19,3 @@ def view_category(request, id):
 	products = Product.objects.filter(category__id=id)
 	args = {'category': category, 'products': products}
 	return render(request, 'shop/view_category.html', args)
-
-def view_product(request, id):
-	product = get_object_or_404(Product, id=id)
-	cart_product_form = CartAddProductForm()
-	args = {'product': product, 'cart_product_form': cart_product_form}
-	return render(request, 'shop/view_product.html', args)

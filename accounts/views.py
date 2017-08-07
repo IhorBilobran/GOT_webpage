@@ -15,7 +15,7 @@ def register(request):
 									)
 			login(request, new_user)
 			return redirect('accounts:create_profile')
-			
+
 	form = RegisterForm()
 	return render(request, 'accounts/register.html', {'form': form})
 
@@ -35,4 +35,4 @@ def view_profile(request, id=None):
 		user = get_object_or_404(User, id=id)
 	else:
 		user = request.user
-	return render(request, 'accounts/view_profile.html', {'user': user})	
+	return render(request, 'accounts/view_profile.html', {'user': user})

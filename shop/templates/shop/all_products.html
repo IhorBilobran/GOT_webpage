@@ -5,6 +5,40 @@
 {% endblock %}
 
 {% block main %}
+<div>
+
+	<table class="table table-striped">
+		<thead>
+				<tr>
+					<td>Name</td>
+					<td>Category</td>
+					<td>Description</td>
+					<td>Price</td>
+			   	<td>Image</td>
+					<td>Add to cart!!</td>
+				</tr>
+		</thead>
+		<tbody>
+			{% for product in products %}
+				<tr>
+					<td>{{product.name}}</td>
+					<td>{{product.category}}</td>
+					<td>{{product.description}}</td>
+					<td>{{product.price}}$</td>
+				 <td><img src="{{product.img.url}}" width="200" height="200"></td>
+					<td>
+						<form action="{% url 'cart:cart_add' product.id %}" method="post">
+						    {% csrf_token %}
+						    {{ cart_product_form.as_p }}
+						    <input type="submit" value="Add to cart">
+						</form>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+	<!--
 	<div class="row">
 		{% for product in products %}
 		<div class="col-md-3">
@@ -19,5 +53,5 @@
 			<p>Created: {{product.created}}</p>
 		</div>
 		{% endfor %}
-	</div>
+	</div>-->
 {% endblock %}

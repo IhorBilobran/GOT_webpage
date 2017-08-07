@@ -6,15 +6,15 @@
 
 {% block main %}
   <h1>Your shop cart</h1>
-  <table class="cart">
+  <table class="cart table table-condensed">
     <thead>
       <tr>
         <th>Picture</th>
         <th>Product</th>
         <th>Quantity</th>
         <th>Delete</th>
-        <th>Total price</th>
-        <th>Price</th>
+        <th>Price for one item</th>
+        <th>Toral price</th>
       </tr>
     </thead>
     <tbody>
@@ -23,7 +23,7 @@
           <tr>
             <td>
               <div class="product-img">
-                <img src="{{ product.img.url }}" alt="" />
+                <img src="{{ product.img.url }}" width="200" height="200"/>
               </div>
             </td>
             <td>{{ product.name }}</td>
@@ -42,7 +42,7 @@
     </tbody>
   </table>
   <p class="text-right">
-    
+
     <a href="#">Make an order</a>
   </p>
 {% endblock %}

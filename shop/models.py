@@ -5,9 +5,9 @@ from home.models import House
 
 class Category(models.Model):
 	name = models.CharField(max_length=50)
-	description = models.TextField(blank=True)
+	description = models.TextField(blank=True, null=True)
 	img = models.ImageField(upload_to='default_pic',blank=True, null=True)
-	
+
 	class Meta:
 		verbose_name = 'Category'
 		verbose_name_plural = 'Categories'

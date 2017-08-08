@@ -4,17 +4,15 @@
 {% endblock %}
 
 {% block main %}
-<div class="houses">
+<div class="houses row">
 	{% for house in houses %}
-	<div class="house col-md-5">
+	
+	<div class="house col-md-4">
 		<p>Name:<a href="{% url 'home:view_house' house.id %}"> {{house.name}}</a></p>
 		<p>Words: {{house.words}}</p>
 		<img src="{%if house.img.url%}{{house.img.url}}{%endif%}" widht="240" height="320">
 	</div>
-	{% endfor %}
-</div>
 
-<div class="persons">
-	
+	{% endfor %}
 </div>
 {% endblock %}

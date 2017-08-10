@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib.auth.views import login, logout
 
 from . import views
@@ -12,4 +12,5 @@ urlpatterns = [
 	url(r'^view-profile/$', views.view_profile, name='view_profile'),
 	url(r'^view-profile/(?P<id>\d+)/$', views.view_profile,
 		name='view_profile'),
+	url(r'^api/', include('accounts.api.urls')),
 ]

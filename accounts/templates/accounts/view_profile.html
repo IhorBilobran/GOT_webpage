@@ -5,11 +5,45 @@ your profile
 {% endblock %}
 
 {% block main %}
-	<p>Username: {{user.username}}</p>
-	<p>First name: {{user.first_name}}</p>
-	<p>Last name:{{user.last_name}}</p>
-	<p>House: <a href="{% url 'home:view_house' user.userprofile.house.id %}">{{user.userprofile.house}}</a></p>
-	<p>City: {{user.userprofile.city}}</p>
-	<p>Created: {{user.userprofile.created}}</p>
-	<img src="{% if user.userprofile.img %}{{user.userprofile.img.url}}{%endif%}">
+<div class="row" ng-controller="profileCtrl">
+	<div class="col-md-3"></div>
+	<div class="col-md-4">
+		<p>Username: {{user.username}}</p>
+		<p>First name: {{user.first_name}}</p>
+		<p>Last name:{{user.last_name}}</p>
+		<img src="{% if user.userprofile.img %}{{user.userprofile.img.url}}{%endif%}" width="320" height="320">
+		<p>House: <a href="{% url 'home:view_house' user.userprofile.house.id %}">{{user.userprofile.house}}</a></p>
+		<p>City: {{user.userprofile.city}}</p>
+		<p>Created: {{user.userprofile.created}}</p>
+	</div>
+	<div class="col-md-5">
+		{% verbatim %}
+		<div class="text-center">
+			<h3>Your micro blog</h3>
+			<form method="post" ng-submit="addPost()">
+				{% endverbatim %}
+				{% csrf_token %}
+				{% verbatim %}
+				<input type="text" ng-model="titleInput" class="form-control" placeholder="Title">
+				<br>
+				<textarea ng-model="textInput" rows="8" cols="40" class="form-control" placeholder="text"></textarea>
+				<br>
+				<button type="submit" class="btn btn-default">Post!</button>
+			</form>
+		</div>
+		<div class="" ng-repeat="post in posts">
+			<hr>
+			<p>owner: {{post.owner}}</p>
+			<p>Title: {{post.title}}</p>
+			<p>Text: {{post.text}}</p>
+			<p>Posted: {{post.created}}</p>
+		</div>
+		<hr>
+		{% endverbatim %}
+	</div>
+</div>
+{% endblock %}
+
+{% block script %}
+	<script src="/static/js/profile.js"></script>
 {% endblock %}

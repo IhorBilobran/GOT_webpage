@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="gotApp">
 <head>
 	{% load static %}
 	<title>
 	{% block title %} Home
 	{% endblock %}
 	</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+	<link rel="stylesheet" href="/static/node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   <!-- NO FOR CACHING -->
   <meta http-equiv="cache-control" content="max-age=0" />
 	<meta http-equiv="cache-control" content="no-cache" />
@@ -72,14 +72,16 @@
 		Welcome on the home page
 		{% endblock %}
 	</div>
-<<<<<<< HEAD
 	<br>
 	<div class="footer text-center col-md-12">
 		<h6>Created by awesome developer!! Taras Bilobran</h6>
 	</div>
-=======
->>>>>>> 33277d3ba291a68ce6d306666a12865fcf7e905a
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="/static/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="/static/node_modules/angular/angular.js"></script>
+	<script src="/static/node_modules/angular-resource/angular-resource.js"></script>
+	<script src="/static/js/main.js"></script>
+	{% block script %}
+	{% endblock %}
 </body>
 </html>

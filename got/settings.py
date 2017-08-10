@@ -20,6 +20,8 @@ INSTALLED_APPS = [
     'accounts',
     'shop',
     'cart',
+    'paypal.standard.ipn',
+    'payment',
 ]
 
 MIDDLEWARE = [
@@ -94,6 +96,7 @@ LOGIN_REDIRECT_URL = '/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
+'''
 LOGIN_EXEMPT_URLS = (
     r'^accounts/logout/$',
     r'^accounts/register/$',
@@ -101,6 +104,9 @@ LOGIN_EXEMPT_URLS = (
     r'^castel-gallery/',
     r'^people-gallery/',
 )
-
+'''
 # our session indetificator
 CART_SESSION_ID = 'cart'
+
+# for our payment sys
+PAYPAL_TEST = True

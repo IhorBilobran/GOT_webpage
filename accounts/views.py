@@ -1,6 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth import authenticate, login
+from django.http import HttpResponse
+from django.contrib.auth import (
+	authenticate as django_auth,
+	login as django_login
+	)
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.contrib.auth.views import logout
 
 from .models import UserProfile
 from .forms import RegisterForm, CreateProfileForm
@@ -36,3 +42,19 @@ def view_profile(request, id=None):
 	else:
 		user = request.user
 	return render(request, 'accounts/view_profile.html', {'user': user})
+
+def login_view(request):
+	if request.method == 'POST':
+		username = request.POST['username']
+		password = request.POST['password']
+		user = django_auth(request, username=username, password=password)
+		if user is not None:
+			django_login(request, user)
+			return redirect('home:home')
+		return HttpResponse('Fuckin Error!!')
+	return render(request, 'accounts/login.html')
+
+@login_required
+def logout_view(request, *args, **kwargs):
+	logout(request, *args, **kwargs)
+	return redirect('home:home')

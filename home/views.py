@@ -9,7 +9,7 @@ from accounts.models import UserProfile
 
 
 def home(request):
-	return render(request, 'index.html')
+	return render(request, 'home/home.html')
 
 def house_gallery(request):
 	houses = House.objects.all().order_by('name')

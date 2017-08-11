@@ -4,6 +4,10 @@ from django.contrib.auth.models import User
 from home.models import House
 
 class UserProfile(models.Model):
+	first_name = models.CharField(max_length=50)
+	last_name = models.CharField(max_length=50)
+	email = models.EmailField(null=True)
+
 	house = models.ForeignKey(House, blank=True, null=True)
 	user = models.OneToOneField(User, blank=True, null=True)
 	img = models.ImageField(upload_to='users-photo/', blank=True, null=True)

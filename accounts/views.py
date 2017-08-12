@@ -35,12 +35,13 @@ def register(request):
 def view_profile(request, id=None):
 	if id is not None:
 		user = get_object_or_404(User, id=id)
+		user = user.profile
 	else:
-		user = request.user
+		user = request.user.profile
 	return render(request, 'accounts/view_profile.html', {'user': user})
 
 def change_profile(request, pk=None):
-	pass
+	return render(request, 'accounts/change_profile.html')
 
 def login_view(request):
 	print('cathced')

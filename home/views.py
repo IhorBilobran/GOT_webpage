@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from reportlab.pdfgen import canvas
 
 from .models import House, Person, Castel
-from accounts.models import UserProfile
+from accounts.models import Profile
 
 
 def home(request):
@@ -31,7 +31,7 @@ def view_house(request, id=None):
 	if id is not None:
 		house = get_object_or_404(House, id=id)
 		persons = Person.objects.filter(house__id=id)
-		users = User.objects.filter(userprofile__house__id=id)
+		users = User.objects.filter(profile__house__id=id)
 
 		args = {'house': house, 'persons': persons, 'users': users}
 		try:

@@ -7,29 +7,30 @@ from django.contrib.auth import (
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.views import logout
+from django.contrib.auth import authenticate, login
 
-from .models import UserProfile
-from .forms import RegisterForm, CreateProfileForm
+from .models import Profile
+from .forms import RegisterForm
 
-'''
+
 def register(request):
 	if request.method == 'POST':
 		form = RegisterForm(request.POST)
 		if form.is_valid():
-			new_user = form.save()
-			new_user = authenticate(username=form.cleaned_data['username'],
-									password=form.cleaned_data['password1'],
-									)
-			login(request, new_user)
-			return redirect('accounts:create_profile')
-
-	form = RegisterForm()
+			user = form.save()
+			user.refresh_from_db()
+			# this thing creating profile using signals
+			user.profile.first_name = form.cleaned_data.get('first_name')
+			user.profile.last_name = form.cleaned_data.get('last_name')
+			user.profile.email = form.cleaned_data.get('email')
+			user.save()
+			raw_password = form.cleaned_data.get('password1')
+			user = authenticate(useraname=user.username, password=raw_password)
+			login(request, user)
+			return redirect('home:home')
+	else:
+		form = RegisterForm()
 	return render(request, 'accounts/register.html', {'form': form})
-'''
-
-def register(request):
-
-	return render(request, 'accounts/register.html')
 
 def view_profile(request, id=None):
 	if id is not None:
@@ -38,7 +39,11 @@ def view_profile(request, id=None):
 		user = request.user
 	return render(request, 'accounts/view_profile.html', {'user': user})
 
+def change_profile(request, pk=None):
+	pass
+
 def login_view(request):
+	print('cathced')
 	if request.method == 'POST':
 		username = request.POST['username']
 		password = request.POST['password']

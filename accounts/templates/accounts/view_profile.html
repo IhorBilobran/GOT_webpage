@@ -9,12 +9,15 @@ your profile
 	<div class="col-md-3"></div>
 	<div class="col-md-4">
 		<p>Username: {{user.username}}</p>
-		<p>First name: {{user.first_name}}</p>
-		<p>Last name:{{user.last_name}}</p>
-		<img src="{% if user.userprofile.img %}{{user.userprofile.img.url}}{%endif%}" width="320" height="320">
-		<p>House: <a href="{% url 'home:view_house' user.userprofile.house.id %}">{{user.userprofile.house}}</a></p>
-		<p>City: {{user.userprofile.city}}</p>
-		<p>Created: {{user.userprofile.created}}</p>
+		<p>First name: {{user.profile.first_name}}</p>
+		<p>Last name: {{user.profile.last_name}}</p>
+		<img src="{% if user.userprofile.img %}{{user.profile.img.url}}{%endif%}"
+		width="320" height="320" alt="Your avatar here">
+		{% if user.profile.house %}
+		<p>House: <a href="{% url 'home:view_house' user.profile.house.id %}">{{user.userprofile.house}}</a></p>
+		{% endif %}
+		<p>City: {{user.profile.city}}</p>
+		<p>Joined: {{user.profile.created}}</p>
 	</div>
 	<div class="col-md-5">
 		{% verbatim %}

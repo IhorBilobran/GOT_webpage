@@ -19,7 +19,9 @@
 	<div class="nav navbar navbar-default">
 		<div class="container">
 			<ul class="nav navbar-nav">
+				{% if user.is_staff %}
 				<li><a href="/admin/">admin</a></li>
+				{% endif %}
 				<li><a href="/">Home</a></li>
 				{% if user.is_authenticated %}
 				<li><a href="{% url 'accounts:view_profile'%}">View profile</a></li>
@@ -62,6 +64,7 @@
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="{% url 'cart:cart_detail' %}">Your cart</a></li>
+					<li><a href="{% url 'accounts:register' %}">Register</a></li>
 					<li><a href="{% url 'accounts:login' %}">Login</a></li>
 				</ul>
 				{% endif %}

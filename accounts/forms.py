@@ -49,3 +49,19 @@ class RegisterForm(UserCreationForm):
 		if commit:
 			user.save()
 		return user
+
+class ProfileUpdateForm(UserChangeForm):
+
+	class Meta:
+		model = Profile
+		fields = (
+			'first_name', 'last_name', 'email',
+			'house', 'img', 'city', 'password'
+		)
+
+	def __init__(self, *args, **kwargs):
+		super(ProfileUpdateForm, self).__init__(*args, **kwargs)
+		self.fields['first_name'].widget.attrs.update({
+			'class': 'form-control',
+			'placeholder': 'first_name'
+		})

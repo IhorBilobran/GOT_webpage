@@ -11,5 +11,6 @@ urlpatterns = [
 	url(r'^view-profile/$', views.view_profile, name='view_profile'),
 	url(r'^view-profile/(?P<id>\d+)/$', views.view_profile,
 		name='view_profile'),
+	url(r'^change-profile/$', views.change_profile, name='change_profile'),
 	url(r'^api/', include('accounts.api.urls')),
 ]

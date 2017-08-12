@@ -8,17 +8,17 @@ your profile
 <div class="row" ng-controller="profileCtrl">
 	<div class="col-md-3"></div>
 	<div class="col-md-4">
-		<p>Username: {{user.user}}</p>
-		<p>First name: {{user.first_name}}</p>
-		<p>Last name: {{user.last_name}}</p>
-		<img src="{% if user.img %}{{user.img.url}}{%endif%}"
+		<p>Username: {{profile.user}}</p>
+		<p>First name: {{profile.first_name}}</p>
+		<p>Last name: {{profile.last_name}}</p>
+		<img src="{% if profile.img %}{{profile.img.url}}{%endif%}"
 		width="320" height="320" alt="Your avatar here">
-		{% if user.profile.house %}
-		<p>House: <a href="{% url 'home:view_house' user.profile.house.id %}">{{user.house}}</a></p>
+			{% if profile.house %}
+		<p>House: <a href="{% url 'home:view_house' profile.house.id %}">{{profile.house}}</a></p>
 		{% endif %}
-		<p>Email: {{user.email}}</p>
-		<p>City: {{user.city}}</p>
-		<p>Joined: {{user.created}}</p>
+		<p>Email: {{profile.email}}</p>
+		<p>City: {{profile.city}}</p>
+		<p>Joined: {{profile.created}}</p>
 	</div>
 	<div class="col-md-5">
 		{% verbatim %}

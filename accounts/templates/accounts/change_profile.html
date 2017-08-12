@@ -5,9 +5,45 @@ Profile editing
 {% endblock %}
 
 {% block main %}
-	<form method="POST">
-		{% csrf_token %}
-		{{forms.as_p}}
-		<button type="submit"></button>
-	</form>
+<div class="row" ng-controller="">
+	<div class="col-md-4">
+	</div>
+		<div class="col-md-4">
+			<form method="POST" action="" enctype="multipart/form-data">
+				{% csrf_token %}
+				<br>
+				<input type="text" id="first_name" name="first_name"
+				class="form-control" value="{{profile.first_name}}">
+				<br>
+				<input type="text" id="last_name" name="last_name"
+				class="form-control" value="{{profile.last_name}}">
+				<br>
+				<input type="text" id="email" name="email"
+				class="form-control" value="{{profile.email}}">
+				<br>
+				<select class="form-control" name="house" type="text" name="house" id="house">
+					{% for item in house_choice %}
+						{% if profile.house.id == item.id %}
+							<option value="{{item.id}}" selected="{{item.id}}">{{item.name}}</option>
+						{% else %}
+							<option value="{{item.id}}">{{item.name}}</option>
+						{% endif %}
+					{% endfor %}
+				</select>
+				{% for intem in form %}
+				<p>{{item.errors}}</p>
+				{%endfor %}
+				<br>
+				<input type="file" id="img" name="img"
+				class="form-control" value="{{profile.img}}">
+				<br>
+				<input type="text" id="city" name="city"
+				class="form-control" value="{{profile.city}}">
+				<br>
+				<button type="submit">Update profile</button>
+			</form>
+		</div>
+	<div class="col-md-4">
+	</div>
+</div>
 {% endblock %}

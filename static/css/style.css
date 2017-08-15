@@ -17,7 +17,6 @@
 }
 
 .carousel-inner .item img{
-	border-radius: 10%;
 	background-color: none;
 	min-width: auto;
 	min-height: 360px;

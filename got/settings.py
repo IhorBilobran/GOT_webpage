@@ -20,8 +20,6 @@ INSTALLED_APPS = [
     'accounts',
     'shop',
     'cart',
-    'paypal.standard.ipn',
-    'payment',
     'rest_framework',
 ]
 
@@ -108,6 +106,3 @@ LOGIN_EXEMPT_URLS = (
 '''
 # our session indetificator
 CART_SESSION_ID = 'cart'
-
-# for our payment sys
-PAYPAL_TEST = True

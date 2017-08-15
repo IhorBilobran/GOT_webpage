@@ -24,6 +24,7 @@ class PostList(APIView):
 
 
 class PostDetail(APIView):
+	
 
     def get_object(self,pk):
         try:

@@ -11,6 +11,7 @@ class Category(models.Model):
 	class Meta:
 		verbose_name = 'Category'
 		verbose_name_plural = 'Categories'
+		ordering = ('-name', )
 
 	def __str__(self):
 		return self.name
@@ -27,5 +28,7 @@ class Product(models.Model):
 	created = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 	updated = models.DateTimeField(auto_now=True, null=True, blank=True)
 
+	class Meta:
+		ordering = ('-created', '-name')
 	def __str__(self):
 		return self.name

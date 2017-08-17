@@ -15,4 +15,4 @@ class ProductSerializer(serializers.ModelSerializer):
                 'id', 'name', 'description', 'img',
                 'available', 'price', 'created', 'updated',
                 'reference', 'category'
-                )
+            )

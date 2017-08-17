@@ -8,10 +8,12 @@
 	</title>
 	<link rel="stylesheet" href="/static/node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" href="/static/css/font-awesome.min.css">
+
 </head>
 <body>
-	<div class="nav navbar navbar-default">
-		<div class="container">
+	<div class="container">
+		<div class="nav navbar navbar-default col-md-12">
 			<ul class="nav navbar-nav">
 				{% if user.is_staff %}
 				<li><a href="/admin/">admin</a></li>
@@ -64,8 +66,8 @@
 				</ul>
 				{% endif %}
 			</div>
-		</div>
-	<div class="main container">
+
+	<div class="main col-md-12">
 		{% block main %}
 		Welcome on the home page
 		{% endblock %}

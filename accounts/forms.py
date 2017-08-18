@@ -64,4 +64,4 @@ class ProfileUpdateForm(UserChangeForm):
 		self.fields['first_name'].widget.attrs.update({
 			'class': 'form-control',
 			'placeholder': 'first_name'
-		})
+	})

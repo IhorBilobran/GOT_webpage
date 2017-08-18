@@ -52,7 +52,6 @@ TEMPLATES = [
         },
     },
 ]
-
 WSGI_APPLICATION = 'got.wsgi.application'
 
 DATABASES = {
@@ -106,3 +105,12 @@ LOGIN_EXEMPT_URLS = (
 '''
 # our session indetificator
 CART_SESSION_ID = 'cart'
+
+# settings for mail reset password
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # During development only
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'testsite_app'
+EMAIL_HOST_PASSWORD = 'mys3cr3tp4ssw0rd'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'TestSite Team <noreply@example.com>'

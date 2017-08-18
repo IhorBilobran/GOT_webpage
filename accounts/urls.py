@@ -1,4 +1,5 @@
 from django.conf.urls import url, include
+from django.contrib.auth import views as auth_views
 from django.contrib.auth.views import login, logout
 
 from . import views
@@ -13,4 +14,7 @@ urlpatterns = [
 		name='view_profile'),
 	url(r'^change-profile/$', views.change_profile, name='change_profile'),
 	url(r'^api/', include('accounts.api.urls')),
+	# define urls for reseting password
+    url('^', include('django.contrib.auth.urls')),
+
 ]

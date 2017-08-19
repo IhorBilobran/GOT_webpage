@@ -5,14 +5,11 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from .models import Profile
 
 class RegisterForm(UserCreationForm):
-	first_name = forms.CharField(max_length=50)
-	last_name = forms.CharField(max_length=50)
-	email = forms.EmailField(required=True)
-
+	city = forms.CharField(max_length=50)
 	class Meta:
 		model = User
 		fields = (
-				"username", "email", 'first_name',
+				"username", "email", 'first_name', 'city',
 				'last_name', "password1", "password2",
 				'email'	)
 
@@ -55,13 +52,12 @@ class ProfileUpdateForm(UserChangeForm):
 	class Meta:
 		model = Profile
 		fields = (
-			'first_name', 'last_name', 'email',
 			'house', 'img', 'city', 'password'
 		)
 
 	def __init__(self, *args, **kwargs):
 		super(ProfileUpdateForm, self).__init__(*args, **kwargs)
-		self.fields['first_name'].widget.attrs.update({
-			'class': 'form-control',
-			'placeholder': 'first_name'
-	})
+#		self.fields['first_name'].widget.attrs.update({
+#			'class': 'form-control',
+#			'placeholder': 'first_name'
+#	})

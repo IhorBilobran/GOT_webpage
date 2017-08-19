@@ -20,13 +20,8 @@ def register(request):
 			user = form.save()
 			user.refresh_from_db()
 			# this thing creating profile using signals
-			user.profile.first_name = form.cleaned_data.get('first_name')
-			user.profile.last_name = form.cleaned_data.get('last_name')
-			user.profile.email = form.cleaned_data.get('email')
+			user.profile.city = form.cleaned_data.get('city')
 			user.save()
-			raw_password = form.cleaned_data.get('password1')
-			user = authenticate(useraname=user.username, password=raw_password)
-			login(request, user)
 			return redirect('home:home')
 	else:
 		form = RegisterForm()
@@ -35,11 +30,10 @@ def register(request):
 def view_profile(request, id=None):
 	if id is not None:
 		user = get_object_or_404(User, id=id)
-		profile = user.profile
-		args = {'profile': profile}
+		args = {'user': user}
 	else:
-		profile = request.user.profile
-		args = {'profile': profile}
+		user = request.user
+		args = {'user': user}
 	return render(request, 'accounts/view_profile.html', args)
 
 def change_profile(request, pk=None):
@@ -47,9 +41,6 @@ def change_profile(request, pk=None):
 		form = ProfileUpdateForm(request.POST, request.FILES ,instance=request.user)
 		if form.is_valid():
 			user = form.save(commit=False)
-			user.profile.first_name = form.cleaned_data.get('first_name')
-			user.profile.last_name = form.cleaned_data.get('last_name')
-			user.profile.email = form.cleaned_data.get('email')
 			user.profile.house = form.cleaned_data.get('house')
 			user.profile.img = form.cleaned_data.get('img')
 			user.profile.city = form.cleaned_data.get('city')

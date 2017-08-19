@@ -6,10 +6,6 @@ from django.dispatch import receiver
 from home.models import House
 
 class Profile(models.Model):
-	first_name = models.CharField(max_length=50)
-	last_name = models.CharField(max_length=50)
-	email = models.EmailField(null=True)
-
 	house = models.ForeignKey(House, blank=True, null=True)
 	user = models.OneToOneField(User, blank=True, null=True, on_delete=models.CASCADE)
 	img = models.ImageField(upload_to='users-photo/', blank=True, null=True)

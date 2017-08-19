@@ -11,7 +11,7 @@ Profile editing
 		<div class="col-md-4">
 			<form method="POST" action="" enctype="multipart/form-data">
 				{% csrf_token %}
-				<br>
+				<br><!--
 				<input type="text" id="first_name" name="first_name"
 				class="form-control" value="{{profile.first_name}}">
 				<br>
@@ -20,7 +20,7 @@ Profile editing
 				<br>
 				<input type="text" id="email" name="email"
 				class="form-control" value="{{profile.email}}">
-				<br>
+				<br>-->
 				<select class="form-control" name="house" type="text" name="house" id="house">
 					{% for item in house_choice %}
 						{% if profile.house.id == item.id %}

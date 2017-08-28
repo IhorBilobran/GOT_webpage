@@ -6,7 +6,23 @@ your profile
 
 {% block main %}
 <div class="row" ng-controller="profileCtrl">
-	<div class="col-md-3"></div>
+	<div class="col-md-1">
+	</div>
+	<div class="col-md-2">
+		Other Users
+		<ul>
+			{% for item in users %}
+				{% if item == user %}
+				{% else %}
+					<li>
+						<a href="{% url 'accounts:view_profile' item.id %}">
+							{{item.username}}
+						</a>
+					</li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+	</div>
 	<div class="col-md-4">
 		<p>Username: {{user.username}}</p>
 		<p>{{user.get_full_name}}</p>

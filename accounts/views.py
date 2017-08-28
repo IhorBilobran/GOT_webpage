@@ -34,6 +34,8 @@ def view_profile(request, id=None):
 	else:
 		user = request.user
 		args = {'user': user}
+	users = User.objects.all()
+	args['users'] = users
 	return render(request, 'accounts/view_profile.html', args)
 
 def change_profile(request, pk=None):
